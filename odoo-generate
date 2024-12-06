@@ -4,12 +4,12 @@
 read -p "Ingresa el nombre del proyecto: " PROJECT_NAME
 
 # Pedir la versión de Odoo
-read -p "Ingresa la versión de Odoo que quieres levantar (ej. 17, 16): " ODOO_WEB_VERSION
+read -p "Ingresa la versión de Odoo que quieres levantar (11 - 18): " ODOO_WEB_VERSION
 
 # Validar la versión ingresada
 if ! [[ "$ODOO_WEB_VERSION" =~ ^(11|12|13|14|15|16|17|18)$ ]]; then
     echo "Versión de Odoo no válida. Por favor ingresa una versión entre 11 y 18."
-    read -p "Ingresa la versión de Odoo que quieres levantar (ej. 11, 18): " ODOO_WEB_VERSION
+    read -p "Ingresa la versión de Odoo que quieres levantar (11 - 18): " ODOO_WEB_VERSION
 fi
 
 # Crear el directorio del proyecto
@@ -179,6 +179,11 @@ echo "Contraseña maestra de PostgreSQL: $POSTGRES_PASSWORD"
 echo "Contraseña del administrador de Odoo: $ADMIN_PASSWORD"
 echo "Accede a Odoo en el navegador en: http://$IP_ADDRESS:$ODOO_WEB_PORT"
 echo "--------------------------------------------------------------"
+
+# Mostrar como generar un nuevo modulo con Scaffold
+echo "Para generar un nuevo modulo con el commando Scaffold, ejecuta el siguiente comando:"
+echo "Reemplazar 'nombre_modulo' por el nombre de tu modulo"
+echo "docker exec -it $DOCKER_CONTAINER_NAME_WEB odoo scaffold nombre_modulo /mnt/extra-addons"
 
 # Mostrar el log del contenedor de Odoo
 echo "Para ver el log del contenedor de Odoo, ejecuta el siguiente comando:"
