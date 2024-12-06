@@ -183,7 +183,7 @@ echo "--------------------------------------------------------------"
 # Mostrar como generar un nuevo modulo con Scaffold
 echo "Para generar un nuevo modulo con el commando Scaffold, ejecuta el siguiente comando:"
 echo "Reemplazar 'nombre_modulo' por el nombre de tu modulo"
-echo "docker exec -it $DOCKER_CONTAINER_NAME_WEB odoo scaffold nombre_modulo /mnt/extra-addons"
+echo "docker exec -it $DOCKER_CONTAINER_NAME_WEB odoo scaffold nombre_modulo /mnt/extra-addons/development"
 
 # Mostrar el log del contenedor de Odoo
 echo "Para ver el log del contenedor de Odoo, ejecuta el siguiente comando:"
