@@ -105,6 +105,7 @@ services:
       - PASSWORD=$POSTGRES_PASSWORD
     volumes:
       - $APP_DATA_DIR/odoo/addons:/mnt/extra-addons
+      - $APP_DATA_DIR/odoo/addons/base:/usr/lib/python3/dist-packages/odoo/addons
       - $APP_DATA_DIR/odoo/etc:/etc/odoo
       - $APP_DATA_DIR/odoo/filestore:/root/.local/share
     restart: unless-stopped
