@@ -13,7 +13,7 @@ if ! [[ "$ODOO_WEB_VERSION" =~ ^(11|12|13|14|15|16|17|18)$ ]]; then
 fi
 
 # Crear el directorio del proyecto
-PROJECT_DIR="/home/ynavarro/Workspace/$PROJECT_NAME"
+PROJECT_DIR="/home/odoo/Workspace/$PROJECT_NAME"
 mkdir -p "$PROJECT_DIR"
 
 # Función para verificar si un puerto está en uso en el sistema
@@ -48,7 +48,7 @@ DOCKER_CONTAINER_NETWORK="${PROJECT_NAME}_network"
 DOCKER_CONTAINER_NAME_DATABASE="${PROJECT_NAME}-db"
 DOCKER_CONTAINER_NAME_WEB="${PROJECT_NAME}-web"
 ODOO_POSTGRES_USER="${PROJECT_NAME}-user"
-APP_DATA_DIR="/home/ynavarro/Workspace/$PROJECT_NAME"
+APP_DATA_DIR="/home/odoo/Workspace/$PROJECT_NAME"
 
 # Crear el archivo .env dentro del proyecto
 cat <<EOL > "$PROJECT_DIR/.env"
@@ -119,7 +119,7 @@ networks:
 EOL
 
 # Directorio del proyecto
-APP_DATA_DIR="/home/ynavarro/Workspace/$PROJECT_NAME"
+APP_DATA_DIR="/home/odoo/Workspace/$PROJECT_NAME"
 
 # Crear las carpetas necesarias para los addons
 BASE_DIR="$APP_DATA_DIR/odoo/addons"
