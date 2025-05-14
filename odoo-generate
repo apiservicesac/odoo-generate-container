@@ -128,17 +128,6 @@ DEVELOPMENT_DIR="$APP_DATA_DIR/odoo/addons/development"
 mkdir -p "$BASE_DIR"
 mkdir -p "$DEVELOPMENT_DIR"
 
-# Descomprimir los módulos de Odoo según la versión seleccionada
-ENTERPRISE_ZIP="/opt/scripts/odoo_base/enterprise/enterprise-$ODOO_WEB_VERSION.zip"
-
-if [ -f "$ENTERPRISE_ZIP" ]; then
-    echo "Descomprimiendo módulos Enterprise para Odoo $ODOO_WEB_VERSION..."
-    unzip -q "$ENTERPRISE_ZIP" -d "$BASE_DIR"
-else
-    echo "No se encontró el archivo ZIP para la versión de Odoo $ODOO_WEB_VERSION: $ENTERPRISE_ZIP"
-    exit 1
-fi
-
 # Ruta del archivo odoo.conf
 ODOO_CONF_PATH="$APP_DATA_DIR/odoo/etc"
 mkdir -p "$ODOO_CONF_PATH"
@@ -150,7 +139,7 @@ ADMIN_PASSWORD=$(openssl rand -base64 16)
 cat <<EOL > "$ODOO_CONF_PATH/odoo.conf"
 [options]
 admin_passwd = $ADMIN_PASSWORD
-addons_path = /mnt/extra-addons/enterprise, /mnt/extra-addons/development
+addons_path = /mnt/extra-addons/development
 limit_time_cpu = 3600
 limit_time_real = 3600
 limit_request_body = 10000000000
